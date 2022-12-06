@@ -19,17 +19,8 @@ class controlador_adm_session extends \gamboamartin\controllers\controlador_adm_
     public string $include_menu = '';
     public string $mensaje_html = '';
 
-    public string $link_alta_tg_cte_tipo_alianza = '';
-    public string $link_lista_org_tipo_puesto = '';
-    public string $link_alta_tg_cte_alianza = '';
-    public string $link_lista_org_puesto = '';
-    public string $link_alta_com_cliente = '';
-    public string $link_lista_com_cliente = '';
-    public string $link_alta_em_empleado = '';
-    public string $link_lista_em_empleado = '';
-    public string $link_alta_em_anticipo = '';
-    public string $link_lista_em_anticipo = '';
-
+    public string $link_alta_adm_seccion = '';
+    public string $link_lista_adm_seccion = '';
     /**
      * Funcion de controlador donde se ejecutaran siempre que haya un acceso denegado
      * @param bool $header Si header es true cualquier error se mostrara en el html y cortara la ejecucion del sistema
@@ -64,28 +55,12 @@ class controlador_adm_session extends \gamboamartin\controllers\controlador_adm_
             return $this->retorno_error(mensaje:  'Error al generar template',data: $template, header: $header, ws: $ws);
         }
 
-        $hd = "index.php?seccion=tg_cte_tipo_alianza&accion=alta&session_id=$this->session_id";
-        $this->link_alta_tg_cte_tipo_alianza = $hd;
-        $hd = "index.php?seccion=tg_cte_alianza&accion=alta&session_id=$this->session_id";
-        $this->link_alta_tg_cte_alianza = $hd;
-        $hd = "index.php?seccion=com_cliente&accion=alta&session_id=$this->session_id";
-        $this->link_alta_com_cliente = $hd;
-        $hd = "index.php?seccion=em_empleado&accion=alta&session_id=$this->session_id";
-        $this->link_alta_em_empleado = $hd;
-        $hd = "index.php?seccion=em_anticipo&accion=alta&session_id=$this->session_id";
-        $this->link_alta_em_anticipo = $hd;
+        $hd = "index.php?seccion=adm_seccion&accion=alta&session_id=$this->session_id";
+        $this->link_alta_adm_seccion = $hd;
 
-        $hd = "index.php?seccion=org_tipo_puesto&accion=lista&session_id=$this->session_id";
-        $this->link_lista_org_tipo_puesto = $hd;
-        $hd = "index.php?seccion=org_puesto&accion=lista&session_id=$this->session_id";
-        $this->link_lista_org_puesto = $hd;
-        $hd = "index.php?seccion=com_cliente&accion=lista&session_id=$this->session_id";
-        $this->link_lista_com_cliente = $hd;
-        $hd = "index.php?seccion=em_empleado&accion=lista&session_id=$this->session_id";
-        $this->link_lista_em_empleado = $hd;
-        $hd = "index.php?seccion=em_anticipo&accion=lista&session_id=$this->session_id";
-        $this->link_lista_em_anticipo = $hd;
-
+        $hd = "index.php?seccion=adm_seccion&accion=lista&session_id=$this->session_id";
+        $this->link_lista_adm_seccion = $hd;
+        
         $this->include_menu = (new generales())->path_base;
         $this->include_menu .= 'templates/inicio.php';
 
